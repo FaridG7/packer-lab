@@ -11,7 +11,9 @@
 
 ## Overview
 
-This project automates the creation of a custom Vagrant base box tailored for the `libvirt` provider (KVM/QEMU). Instead of relying on pre-built boxes from Vagrant Cloud, it starts from the official Ubuntu 24.04 cloud image and produces a reproducible, minimal box with:
+This project was born out of a practical constraint: Vagrant Cloud was unreachable, making it impossible to pull the official `cloud-images/ubuntu-24.04` box. Rather than waiting, the solution was to build an equivalent box from scratch — using Ubuntu's own cloud images as the source and Packer to automate everything.
+
+The result is functionally identical to the upstream box, but built and owned locally, and scoped specifically to the `libvirt` provider (KVM/QEMU). It starts from the official Ubuntu 24.04 cloud image and produces a reproducible, minimal box with:
 
 - **Vagrant user** provisioned via cloud-init (SSH key auth, passwordless sudo/doas)
 - **Password authentication disabled** — SSH key access only
